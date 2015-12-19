@@ -1,0 +1,310 @@
+/* -------------------------------- 
+
+Modal contact form
+
+-------------------------------- */
+
+.modal {
+  visibility: hidden;
+
+  &.active {
+    visibility: visible;
+
+    .modal-fade-screen {
+      opacity: 1;
+      visibility: visible;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  .modal-fade-screen {
+    background-color: $dark-gray;
+    height: 100%;
+    opacity: 0;
+    overflow: auto;
+    position: fixed;
+    text-align: left;
+    visibility: hidden;
+    width: 100%;
+    z-index: 9;
+    
+    transition: opacity 0.25s ease;
+  }
+
+  .modal-close {
+    @include size(2em);
+    //background: $dark-gray;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &:after,
+    &:before {
+      @include position(absolute, 3px 3px 0 50%);
+      @include transform(rotate(45deg));
+      @include size(0.15em 1.5em);
+      background: $orange;
+      content: '';
+      display: block;
+      margin: -3px 0 0 -1px;
+    }
+
+    &:hover:after,
+    &:hover:before {
+      background: #fff;
+    }
+
+    &:before {
+      @include transform(rotate(-45deg));
+    }
+  }
+
+  .modal-inner {
+    //background: $dark-gray;
+    font-family: $georgia;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 auto;
+    overflow: auto;
+    position: relative;
+    top: 30px;
+    width: 85%;
+
+    transition: opacity 0.25s ease;
+
+    @include media($tablet) {
+      top: 60px;
+      width: 65%;
+    }
+
+    img.logo {
+      display: block;
+      margin: 0 auto;
+      width: 40%;
+    }
+
+  	form {
+    	color: #fff;
+      margin-top: 16px;
+
+      @include media($tablet) {
+        margin: 30px 0;
+      }
+
+      input[type='text'],
+      textarea {
+        color: $text-gray;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid $text-gray;
+        padding: 0 0 6px 0;
+        
+        &,
+        &.medium {
+          width: 100%;
+        }
+      }
+      textarea {
+        padding-bottom: 15px;
+        
+        @include media($tablet){
+          height: 202px;  
+        }
+      }
+
+      input[type='radio'], 
+      input[type='checkbox'] {
+        display: none;
+        float: left;
+        opacity: 0;
+
+        & + label {
+          clear: none;
+          cursor: pointer;
+          display: inline;
+          margin: 0 20px 0 0;
+          padding: 5px 0 4px 24px;
+          white-space: nowrap;
+        }
+      }
+
+      input[type='radio'] {
+        & + label {
+          background: url('../../../images/radio-off.png') left center no-repeat;
+          background-size: 15px;
+        }
+        &:checked + label {
+          background-image: url('../../../images/radio-on.png');
+          background-size: 15px;
+          font-weight: normal !important;
+        }
+      }
+
+      input[type='checkbox'] {
+        & + label {
+          background: url('../../../images/check-off.png') left center no-repeat;
+          background-size: 15px 16px;
+        }
+        &:checked + label {
+          background-image: url('../../../images/checked.png');
+          background-size: 15px 16px;
+          font-weight: normal !important;
+        }
+      }
+
+      input[type='submit'] {
+        color: $orange;
+        background: transparent;
+        box-shadow: none;
+        border: 0;
+        font-family: "Georgia", serif;
+        font-size: 17px;
+        font-style: italic;
+        line-height: 23px;
+        margin-top: 23px;
+        padding: 0;
+        padding-right: 1px; // fixes clipping issue in Chrome
+        text-shadow: none;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      label {
+        color: #fff;
+        font-style: italic;
+        margin-left: 0;
+
+        &.first {
+          margin-left: -27px;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .checks {
+      span {
+        color: #fff;
+        font-style: italic;
+        margin-left: 0;
+        margin-right: 20px;
+
+        &.first {
+          margin-left: -45px;
+        }
+
+        &.wpcf7-list-item-label {
+          margin-left: 7px;
+        }
+      }
+    }
+
+    .clear-columns {
+      clear: both;
+    }
+
+    .gfield {
+      clear: both;
+      float: left;
+      width: 100%;
+
+      &.gfield_error {
+        background-color: transparent;
+        border: none;
+
+        .gfield_label {
+          color: #fff;
+        }
+
+        input[type='text'],
+        textarea {
+          border: 0;
+          border-bottom: 1px solid $text-gray;
+        }
+      }
+    }
+
+    ul.gfield_checkbox,
+    ul.gfield_radio {
+      li {
+        display: block;
+        float: left;
+        margin: 0;
+        width: auto;
+      }
+    }
+
+    .gfield_label,
+    .gform_confirmation_message {
+      color: #fff;
+      font-size: 17px;
+      font-style: italic;
+      line-height: 23px;
+      margin: 5px 0 10px;
+    }
+
+    .gform_confirmation_wrapper {
+      margin-top: 24px;
+    }
+
+    .gfield_required {
+      display: none;
+    }
+
+    .gform_wrapper {
+      margin: 0;
+      max-width: none;
+    }
+
+    .ginput_container {
+      margin-top: 0 !important;
+
+      &::before {
+        content: none;
+      }
+    }
+
+    .gsection,
+    .gsection-header {
+      display: none;
+    }
+
+    .validation_error {
+      border: none;
+      color: $orange;
+      font-size: 17px;
+      font-weight: normal;
+      margin-bottom: 0;
+    }
+
+    .validation_message {
+      color: $orange;
+      font-size: 15px;
+      font-weight: normal;
+    }
+
+    @include media($tablet){
+      ul.gform_column {
+        @include span-columns(6);
+        margin-right: 2.35765% !important;
+
+        &:last-child {
+          margin-right: 0 !important;
+        }
+      }
+    }
+  }
+
+  .modal-open {
+    overflow: hidden;
+  }
+}
+
+body.modal-active {
+  overflow: hidden;
+}

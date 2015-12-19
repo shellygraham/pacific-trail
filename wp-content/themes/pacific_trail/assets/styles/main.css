@@ -1,0 +1,1431 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* Breakpoints */
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Reset
+2.0 Typography
+3.0 Elements
+4.0 Forms
+5.0 Navigation
+	5.1 Links
+	5.2 Menus
+6.0 Accessibility
+7.0 Alignments
+8.0 Clearings
+9.0 Widgets
+10.0 Content
+	10.1 Posts and pages
+	10.2 Asides
+	10.3 Comments
+11.0 Infinite scroll
+12.0 Media
+	12.1 Captions
+	12.2 Galleries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+0.0 Variables
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+1.0 Reset
+--------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline; }
+
+html {
+  font-size: 62.5%;
+  /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+  overflow-y: scroll;
+  /* Keeps page centered in all browsers regardless of content height */
+  -webkit-text-size-adjust: 100%;
+  /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+  -ms-text-size-adjust: 100%;
+  /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+  box-sizing: border-box;
+  /* Apply a natural box layout model to the document; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */ }
+
+*,
+*:before,
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit; }
+
+body {
+  background: #fff;
+  /* Fallback for when there is no custom background color defined. */ }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+  display: block; }
+
+ol,
+ul {
+  list-style: none; }
+
+table {
+  /* tables still need 'cellspacing="0"' in the markup */
+  border-collapse: separate;
+  border-spacing: 0; }
+
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: ""; }
+
+blockquote,
+q {
+  quotes: "" ""; }
+
+a:focus {
+  outline: thin dotted; }
+
+a:hover,
+a:active {
+  outline: 0; }
+
+a img {
+  border: 0; }
+
+/*--------------------------------------------------------------
+2.0 Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+  color: #404040;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.5; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both; }
+
+p,
+ul,
+ol,
+li {
+  margin-bottom: 18px; }
+
+/* Remove top margin for first element in column */
+p:first-child,
+ul:first-child,
+ol:first-child,
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child,
+blockquote:first-child,
+table:first-child {
+  margin-top: 0; }
+
+/* Remove bottom margin for last element in column */
+p,
+ul,
+ol,
+blockquote,
+table {
+  margin: 9px 0; }
+  p:last-child,
+  ul:last-child,
+  ol:last-child,
+  blockquote:last-child,
+  table:last-child {
+    margin-bottom: 0; }
+
+b,
+strong {
+  font-weight: bold; }
+
+dfn,
+cite,
+em,
+i {
+  font-style: italic; }
+
+blockquote {
+  margin: 0 1.5em; }
+
+address {
+  margin: 0 0 1.5em; }
+
+pre {
+  background: #eee;
+  font-family: "Courier 10 Pitch", Courier, monospace;
+  font-size: 15px;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6em; }
+
+code,
+kbd,
+tt,
+var {
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-size: 15px;
+  font-size: 1.5rem; }
+
+abbr,
+acronym {
+  border-bottom: 1px dotted #666;
+  cursor: help; }
+
+mark,
+ins {
+  background: #fff9c0;
+  text-decoration: none; }
+
+sup,
+sub {
+  font-size: 75%;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  bottom: 1ex; }
+
+sub {
+  top: .5ex; }
+
+small {
+  font-size: 75%; }
+
+big {
+  font-size: 125%; }
+
+/*--------------------------------------------------------------
+3.0 Elements
+--------------------------------------------------------------*/
+hr {
+  background-color: #ccc;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em; }
+
+ul,
+ol {
+  margin: 0 0 1.5em 3em; }
+
+ul {
+  list-style: disc; }
+
+ol {
+  list-style: decimal; }
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em; }
+
+dt {
+  font-weight: bold; }
+
+dd {
+  margin: 0 1.5em 1.5em; }
+
+img {
+  height: auto;
+  /* Make sure images are scaled correctly. */
+  max-width: 100%;
+  /* Adhere to container width. */ }
+
+figure {
+  margin: 0; }
+
+table {
+  margin: 0 0 1.5em;
+  width: 100%; }
+
+th {
+  font-weight: bold; }
+
+/*--------------------------------------------------------------
+4.0 Forms
+--------------------------------------------------------------*/
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* Corrects font size not being inherited in all browsers */
+  margin: 0;
+  /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+  vertical-align: baseline;
+  /* Improves appearance and consistency in all browsers */ }
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border: 1px solid;
+  border-color: #ccc #ccc #bbb;
+  border-radius: 3px;
+  background: #e6e6e6;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  /* Improves usability and consistency of cursor style between image-type 'input' and others */
+  -webkit-appearance: button;
+  /* Corrects inability to style clickable 'input' types in iOS */
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: .6em 1em .4em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+  border-color: #ccc #bbb #aaa;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02); }
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+  border-color: #aaa #bbb #bbb;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15); }
+
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0;
+  /* Addresses excess padding in IE8/9 */ }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* Addresses appearance set to searchfield in S5, Chrome */
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-decoration {
+  /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+  -webkit-appearance: none; }
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+  color: #666;
+  border: 1px solid #ccc;
+  border-radius: 3px; }
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+  color: #111; }
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+  padding: 3px; }
+
+textarea {
+  overflow: auto;
+  /* Removes default vertical scrollbar in IE6/7/8/9 */
+  padding-left: 3px;
+  vertical-align: top;
+  /* Improves readability and alignment in all browsers */
+  width: 100%; }
+
+/*--------------------------------------------------------------
+5.0 Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+5.1 Links
+--------------------------------------------------------------*/
+a {
+  color: royalblue; }
+
+a:visited {
+  color: purple; }
+
+a:hover,
+a:focus,
+a:active {
+  color: midnightblue; }
+
+/*--------------------------------------------------------------
+5.2 Menus
+--------------------------------------------------------------*/
+.main-navigation {
+  clear: both;
+  display: block;
+  float: left;
+  width: 100%; }
+
+.main-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0; }
+
+.main-navigation li {
+  float: left;
+  position: relative; }
+
+.main-navigation a {
+  display: block;
+  text-decoration: none; }
+
+.main-navigation ul ul {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  float: left;
+  position: absolute;
+  top: 1.5em;
+  left: -999em;
+  z-index: 99999; }
+
+.main-navigation ul ul ul {
+  left: -999em;
+  top: 0; }
+
+.main-navigation ul ul a {
+  width: 200px; }
+
+.main-navigation ul li:hover > ul {
+  left: auto; }
+
+.main-navigation ul ul li:hover > ul {
+  left: 100%; }
+
+/* Small menu */
+.menu-toggle {
+  display: none; }
+
+@media screen and (max-width: 600px) {
+  .menu-toggle,
+  .main-navigation.toggled .nav-menu {
+    display: block; }
+
+  .main-navigation ul {
+    display: none; } }
+.site-main .comment-navigation,
+.site-main .paging-navigation,
+.site-main .post-navigation {
+  margin: 0 0 1.5em;
+  overflow: hidden; }
+
+.comment-navigation .nav-previous,
+.paging-navigation .nav-previous,
+.post-navigation .nav-previous {
+  float: left;
+  width: 50%; }
+
+.comment-navigation .nav-next,
+.paging-navigation .nav-next,
+.post-navigation .nav-next {
+  float: right;
+  text-align: right;
+  width: 50%; }
+
+/*--------------------------------------------------------------
+6.0 Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden; }
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar */ }
+
+/*--------------------------------------------------------------
+7.0 Alignments
+--------------------------------------------------------------*/
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em; }
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em; }
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto; }
+
+/*--------------------------------------------------------------
+8.0 Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+  content: "";
+  display: table; }
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+  clear: both; }
+
+/*--------------------------------------------------------------
+9.0 Widgets
+--------------------------------------------------------------*/
+.widget {
+  margin: 0 0 1.5em; }
+
+/* Make sure select elements fit in widgets */
+.widget select {
+  max-width: 100%; }
+
+/* Search widget */
+.widget_search .search-submit {
+  display: none; }
+
+/*--------------------------------------------------------------
+10.0 Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+10.1 Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+  display: block; }
+
+.hentry {
+  margin: 0 0 1.5em; }
+
+.byline,
+.updated:not(.published) {
+  display: none; }
+
+.single .byline,
+.group-blog .byline {
+  display: inline; }
+
+.page-content,
+.entry-content,
+.entry-summary {
+  margin: 1.5em 0 0; }
+
+.page-links {
+  clear: both;
+  margin: 0 0 1.5em; }
+
+/*--------------------------------------------------------------
+10.2 Asides
+--------------------------------------------------------------*/
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+  display: none; }
+
+/*--------------------------------------------------------------
+10.3 Comments
+--------------------------------------------------------------*/
+.comment-content a {
+  word-wrap: break-word; }
+
+.bypostauthor {
+  display: block; }
+
+/*--------------------------------------------------------------
+11.0 Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .paging-navigation,
+.infinite-scroll.neverending .site-footer {
+  /* Theme Footer (when set to scrolling) */
+  display: none; }
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+.infinity-end.neverending .site-footer {
+  display: block; }
+
+/*--------------------------------------------------------------
+12.0 Media
+--------------------------------------------------------------*/
+.page-content img.wp-smiley,
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0; }
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+  max-width: 100%; }
+
+/*--------------------------------------------------------------
+12.1 Captions
+--------------------------------------------------------------*/
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%; }
+
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin: 0 auto; }
+
+.wp-caption-text {
+  text-align: center; }
+
+.wp-caption .wp-caption-text {
+  margin: 0.8075em 0; }
+
+/*--------------------------------------------------------------
+12.2 Galleries
+--------------------------------------------------------------*/
+.gallery {
+  margin-bottom: 1.5em; }
+
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%; }
+
+.gallery-columns-2 .gallery-item {
+  max-width: 50%; }
+
+.gallery-columns-3 .gallery-item {
+  max-width: 33.33%; }
+
+.gallery-columns-4 .gallery-item {
+  max-width: 25%; }
+
+.gallery-columns-5 .gallery-item {
+  max-width: 20%; }
+
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%; }
+
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%; }
+
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%; }
+
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%; }
+
+.gallery-caption {
+  display: block; }
+
+@font-face {
+  font-family: 'sunnregular';
+  src: url("../../../fonts/sunn-webfont.eot");
+  src: url("../../../fonts/sunn-webfont.eot?#iefix") format("embedded-opentype"), url("../../../fonts/sunn-webfont.woff2") format("woff2"), url("../../../fonts/sunn-webfont.woff") format("woff"), url("../../../fonts/sunn-webfont.ttf") format("truetype"), url("../../../fonts/sunn-webfont.svg#sunnregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+body {
+  color: #222; }
+  body #page {
+    height: 100%;
+    overflow: visible;
+    position: relative; }
+  body a:active, body a:hover {
+    outline: none; }
+
+.skrollr-desktop body {
+  height: 100% !important; }
+
+.parallax-image-wrapper {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  overflow: hidden; }
+
+.parallax-image-wrapper-100 {
+  height: 100%;
+  top: -75%; }
+
+.parallax-image-wrapper-75 {
+  height: 75%;
+  top: -55%; }
+
+.parallax-image-wrapper-50 {
+  height: 50%;
+  top: -50%; }
+
+.parallax-image {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+
+.parallax-image-100 {
+  height: 80%;
+  top: 0; }
+
+.parallax-image-100 {
+  height: 75%;
+  top: 0; }
+
+.parallax-image-50 {
+  height: 200%;
+  top: -50%; }
+
+.parallax-image.skrollable-between {
+  display: block; }
+
+.no-skrollr .parallax-image-wrapper {
+  display: none !important; }
+
+.gap {
+  background: transparent center no-repeat;
+  background-size: cover; }
+
+.skrollr .gap {
+  background: transparent !important; }
+
+.gap-100 {
+  height: 75%; }
+
+.gap-75 {
+  height: 100%; }
+
+.gap-50 {
+  height: 50%; }
+
+/**************
+*Header*
+**************/
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  /**************
+  *Navigation*
+  **************/ }
+  header::after {
+    clear: both;
+    content: "";
+    display: table; }
+  header .brand {
+    display: block;
+    margin: 0 auto;
+    height: 152px;
+    background: #000;
+    text-align: center;
+    transition: height 0.5s; }
+    header .brand img {
+      margin-top: 40px;
+      transition: width 500ms ease; }
+    header .brand span {
+      display: none; }
+    header .brand.shrunk {
+      height: 52px;
+      transition: height 0.5s; }
+      header .brand.shrunk img {
+        margin-top: 11px;
+        width: 10%; }
+  header nav {
+    background: rgba(250, 166, 52, 0.8);
+    position: absolute;
+    z-index: 2; }
+    header nav .menu-main-container {
+      display: table;
+      margin: 0 auto; }
+      header nav .menu-main-container ul li {
+        padding: 0 25px;
+        margin: 0; }
+        header nav .menu-main-container ul li a {
+          font: 36px/46px "sunnregular";
+          color: #000;
+          text-transform: uppercase; }
+          header nav .menu-main-container ul li a:hover {
+            color: #fff; }
+        header nav .menu-main-container ul li.current-menu-item a {
+          color: #fff; }
+  header.entry-header {
+    padding: 58px 0 105px 0;
+    margin: 0 auto;
+    background: #f0f0f0;
+    color: #222;
+    text-align: center;
+    z-index: 0;
+    position: relative; }
+    header.entry-header img {
+      display: block;
+      margin: 0 auto 46px auto; }
+    header.entry-header h1 {
+      font: 100px/90px "sunnregular";
+      width: 42%;
+      margin: 0 auto 50px auto;
+      text-transform: uppercase; }
+    header.entry-header p {
+      font: 19px/28px "Georgia";
+      width: 65%;
+      margin: 0 auto; }
+
+.hero {
+  padding-top: 100px;
+  height: 100%; }
+
+.site-content .entry-content {
+  padding: 30px;
+  padding-left: 26%;
+  padding-right: 26%;
+  background: #fff; }
+  .site-content .entry-content h1 {
+    font: 100px/90px "sunnregular";
+    margin: 0 auto 50px auto;
+    text-transform: uppercase;
+    text-align: center; }
+  .site-content .entry-content h2 {
+    font: 30px/40px "Georgia";
+    margin-bottom: -16px; }
+  .site-content .entry-content p {
+    font: 19px/28px "Georgia";
+    margin: 30px auto; }
+
+/**************
+*Home Page*
+**************/
+.home {
+  background: #f0f0f0; }
+  .home header {
+    background: #f0f0f0; }
+    .home header.entry-header {
+      position: relative; }
+  .home .site-content .entry-content {
+    padding: 0; }
+    .home .site-content .entry-content .category-container {
+      width: 100%;
+      clear: both;
+      float: left;
+      border-top: 1px solid #d7d7d7; }
+      .home .site-content .entry-content .category-container:last-child {
+        border-bottom: 1px solid #d7d7d7; }
+      .home .site-content .entry-content .category-container .category-info {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        background: #252525;
+        color: #fff;
+        padding: 50px 0 41px 60px;
+        margin-right: 0;
+        height: 437px; }
+        .home .site-content .entry-content .category-container .category-info:last-child {
+          margin-right: 0; }
+        .home .site-content .entry-content .category-container .category-info h3 {
+          margin: 0 0 11px 0;
+          line-height: normal; }
+        .home .site-content .entry-content .category-container .category-info p {
+          margin: 0 0 65px 0;
+          padding-right: 60px; }
+        .home .site-content .entry-content .category-container .category-info a {
+          color: #faa634;
+          font: 32px/120px "sunnregular";
+          text-transform: uppercase;
+          text-decoration: none;
+          margin-right: 16px;
+          line-height: normal; }
+          .home .site-content .entry-content .category-container .category-info a:last-child {
+            margin-right: 0; }
+          .home .site-content .entry-content .category-container .category-info a:hover {
+            color: #ffffff; }
+      .home .site-content .entry-content .category-container .category-carousel {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 74.41059%;
+        width: 76.41059%;
+        float: left; }
+        .home .site-content .entry-content .category-container .category-carousel:last-child {
+          margin-right: 0; }
+        .home .site-content .entry-content .category-container .category-carousel .btn-holder {
+          width: 5% !important;
+          height: 437px;
+          float: left;
+          position: relative;
+          cursor: pointer; }
+          .home .site-content .entry-content .category-container .category-carousel .btn-holder:first-child {
+            border-right: 1px solid #d7d7d7; }
+          .home .site-content .entry-content .category-container .category-carousel .btn-holder .btn {
+            position: absolute;
+            top: 50%;
+            height: 109px;
+            width: 27px;
+            margin-top: -54px;
+            display: block;
+            text-indent: -10000px;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent; }
+            .home .site-content .entry-content .category-container .category-carousel .btn-holder .btn.prev {
+              background: url("../../../images/prev-arrow.png") center no-repeat;
+              text-indent: -10000px;
+              overflow: hidden;
+              left: 50%;
+              margin-left: -13px; }
+            .home .site-content .entry-content .category-container .category-carousel .btn-holder .btn.next {
+              background: url("../../../images/next-arrow.png") center no-repeat;
+              text-indent: -10000px;
+              overflow: hidden;
+              right: 50%;
+              margin-right: -13px; }
+        .home .site-content .entry-content .category-container .category-carousel #owl-slider {
+          float: left;
+          width: 90%; }
+          .home .site-content .entry-content .category-container .category-carousel #owl-slider a {
+            text-decoration: none; }
+            .home .site-content .entry-content .category-container .category-carousel #owl-slider a .item {
+              border-right: 1px solid #d7d7d7;
+              padding: 20px;
+              height: 437px; }
+              .home .site-content .entry-content .category-container .category-carousel #owl-slider a .item span {
+                font: 16px "Georgia";
+                text-decoration: none;
+                display: block;
+                font-weight: bold;
+                color: #000; }
+              .home .site-content .entry-content .category-container .category-carousel #owl-slider a .item .sku-title {
+                font: 16px "Georgia";
+                text-transform: uppercase; }
+                .home .site-content .entry-content .category-container .category-carousel #owl-slider a .item .sku-title .sku {
+                  color: #898989;
+                  display: inline; }
+          .home .site-content .entry-content .category-container .category-carousel #owl-slider .owl-controls {
+            display: none !important; }
+    .home .site-content .entry-content h3 {
+      font: 60px/120px "sunnregular";
+      margin: 0 auto 50px auto;
+      text-transform: uppercase; }
+    .home .site-content .entry-content p {
+      margin: 0 auto; }
+  .home .site-content .secondary-hero img {
+    margin-top: -24px; }
+  .home .site-content .secondary-header {
+    text-align: center;
+    padding: 117px 0 139px 0; }
+    .home .site-content .secondary-header h2 {
+      font: 100px/90px "sunnregular";
+      margin: 0 auto 50px auto;
+      text-transform: uppercase;
+      width: 42%; }
+    .home .site-content .secondary-header p {
+      margin: 0 auto;
+      font: 19px/28px "Georgia";
+      width: 65%; }
+  .home .site-content .cta-container .button1, .home .site-content .cta-container .button2 {
+    display: block;
+    width: 50%;
+    text-align: center;
+    padding: 300px 0;
+    color: #fff;
+    font: 75px/90px "sunnregular";
+    text-transform: uppercase;
+    text-decoration: none;
+    float: left; }
+    .home .site-content .cta-container .button1:hover, .home .site-content .cta-container .button2:hover {
+      color: #faa634; }
+  .home .site-content .cta-container .button1 {
+    background: url("../../../images/button1.jpg");
+    background-size: cover; }
+  .home .site-content .cta-container .button2 {
+    background: url("../../../images/button2.jpg");
+    background-size: cover; }
+
+/**************
+*Retailers Page*
+**************/
+.page-template-template-store-locator .entry-header {
+  background: #fff;
+  padding: 58px 0 0 0; }
+  .page-template-template-store-locator .entry-header h1 {
+    width: 42%;
+    margin: 0 auto;
+    background: #fff;
+    border-bottom: 2px solid #222;
+    padding: 48px 0; }
+.page-template-template-store-locator .logo-container {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  float: none;
+  margin: 0 auto;
+  text-align: center; }
+  .page-template-template-store-locator .logo-container:last-child {
+    margin-right: 0; }
+  .page-template-template-store-locator .logo-container ul {
+    list-style: none; }
+    .page-template-template-store-locator .logo-container ul li {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%;
+      float: left;
+      margin: 6.4% 0 1.4% 0; }
+      .page-template-template-store-locator .logo-container ul li:last-child {
+        margin-right: 0; }
+.page-template-template-store-locator .cta-container {
+  display: table;
+  background: #222; }
+  .page-template-template-store-locator .cta-container .photo-box, .page-template-template-store-locator .cta-container .contact-container {
+    display: block;
+    width: 50%;
+    text-align: center;
+    padding: 200px 60px;
+    color: #fff;
+    float: left; }
+  .page-template-template-store-locator .cta-container .photo-box {
+    background: url("../../../images/photo-box-bg.jpg");
+    background-size: cover; }
+    .page-template-template-store-locator .cta-container .photo-box h2 {
+      font: 75px/90px "sunnregular";
+      text-transform: uppercase; }
+    .page-template-template-store-locator .cta-container .photo-box p {
+      font: 19px/28px "Georgia"; }
+  .page-template-template-store-locator .cta-container .contact-container {
+    padding: 10px 40px;
+    background: #222222;
+    text-align: left; }
+    .page-template-template-store-locator .cta-container .contact-container h3 {
+      font: italic 28px/40px "Georgia";
+      margin-top: 23px; }
+    .page-template-template-store-locator .cta-container .contact-container h4 span input, .page-template-template-store-locator .cta-container .contact-container h4 span textarea {
+      color: #a7a7a7;
+      font: 16px/28px "Georgia";
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid #a7a7a7;
+      padding: 0 0 6px 0;
+      width: 100%; }
+    .page-template-template-store-locator .cta-container .contact-container h4 span textarea {
+      height: 80px; }
+    .page-template-template-store-locator .cta-container .contact-container p {
+      margin: 0; }
+    .page-template-template-store-locator .cta-container .contact-container .checks span {
+      margin-left: 0;
+      margin-right: 20px;
+      font: italic 16px/28px "Georgia";
+      color: #fff; }
+      .page-template-template-store-locator .cta-container .contact-container .checks span.wpcf7-list-item-label {
+        margin-left: 7px; }
+    .page-template-template-store-locator .cta-container .contact-container input.wpcf7-form-control.wpcf7-submit {
+      font: italic 28px/40px "Georgia";
+      color: #fff;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      padding: 0;
+      margin-top: 18px; }
+      .page-template-template-store-locator .cta-container .contact-container input.wpcf7-form-control.wpcf7-submit:hover {
+        color: #faa634; }
+
+/**************
+*Shop Page*
+**************/
+.woocommerce-page .site-content {
+  background: #1c1c1c;
+  margin-top: -7px;
+  position: relative;
+  transition: 1s; }
+  .woocommerce-page .site-content .main-woo-content {
+    width: 100%;
+    transition: 1s; }
+    .woocommerce-page .site-content .main-woo-content #sidebar {
+      display: block;
+      float: left;
+      width: 18%;
+      height: 100%;
+      background-color: #1c1c1c;
+      position: relative;
+      transition: 1s; }
+      .woocommerce-page .site-content .main-woo-content #sidebar .btn {
+        position: absolute;
+        right: 10px;
+        top: 25px;
+        height: 30px;
+        width: 20px;
+        background: url("../../../images/slideout-close.png") no-repeat; }
+        .woocommerce-page .site-content .main-woo-content #sidebar .btn.open {
+          background: url("../../../images/slideout-open.png") no-repeat; }
+      .woocommerce-page .site-content .main-woo-content #sidebar .sidebar-left {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 14.70196%; }
+        .woocommerce-page .site-content .main-woo-content #sidebar .sidebar-left:last-child {
+          margin-right: 0; }
+        .woocommerce-page .site-content .main-woo-content #sidebar .sidebar-left ul {
+          margin-top: 24px;
+          list-style: none; }
+          .woocommerce-page .site-content .main-woo-content #sidebar .sidebar-left ul li a {
+            color: #faa634;
+            font: 44px/40px "sunnregular";
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: block; }
+          .woocommerce-page .site-content .main-woo-content #sidebar .sidebar-left ul li .sub-menu {
+            margin-left: 0; }
+            .woocommerce-page .site-content .main-woo-content #sidebar .sidebar-left ul li .sub-menu li {
+              margin-bottom: 0; }
+              .woocommerce-page .site-content .main-woo-content #sidebar .sidebar-left ul li .sub-menu li a {
+                font: 16px/24px "Helvetica Neue", Helvetica;
+                color: #fff;
+                text-transform: none;
+                text-decoration: none;
+                margin-bottom: 0; }
+      .woocommerce-page .site-content .main-woo-content #sidebar.closed {
+        width: 3%;
+        overflow: hidden;
+        transition: 1s; }
+      .woocommerce-page .site-content .main-woo-content #sidebar.sticky {
+        position: fixed;
+        top: 126px; }
+    .woocommerce-page .site-content .main-woo-content .woocommerce-breadcrumb, .woocommerce-page .site-content .main-woo-content .page-title, .woocommerce-page .site-content .main-woo-content .woocommerce-result-count, .woocommerce-page .site-content .main-woo-content .woocommerce-ordering {
+      display: none; }
+    .woocommerce-page .site-content .main-woo-content .products {
+      margin: 0;
+      width: 82%;
+      background: #fff;
+      float: right;
+      clear: none;
+      transition: 1s; }
+      .woocommerce-page .site-content .main-woo-content .products.closed {
+        width: 97%;
+        transition: 1s; }
+      .woocommerce-page .site-content .main-woo-content .products .product {
+        border-right: 1px solid #c2c2c2;
+        border-bottom: 1px solid #c2c2c2;
+        width: 25%;
+        margin: 0;
+        padding: 1.25%;
+        min-height: 437px; }
+        .woocommerce-page .site-content .main-woo-content .products .product .gallery {
+          margin-bottom: 0; }
+          .woocommerce-page .site-content .main-woo-content .products .product .gallery .gallery-item:first-child {
+            display: none; }
+        .woocommerce-page .site-content .main-woo-content .products .product h3, .woocommerce-page .site-content .main-woo-content .products .product span {
+          font: bold 16px "Georgia";
+          color: #000;
+          transition: 500ms ease; }
+        .woocommerce-page .site-content .main-woo-content .products .product span {
+          text-transform: uppercase;
+          font-weight: normal;
+          color: #898989; }
+          .woocommerce-page .site-content .main-woo-content .products .product span.price {
+            display: none; }
+        .woocommerce-page .site-content .main-woo-content .products .product.last {
+          border-right: 0; }
+        .woocommerce-page .site-content .main-woo-content .products .product:hover h3 {
+          color: #ff6a06; }
+.woocommerce-page.archive .products .archive-images .yith_magnifier_gallery li {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%; }
+  .woocommerce-page.archive .products .archive-images .yith_magnifier_gallery li:last-child {
+    margin-right: 0; }
+  .woocommerce-page.archive .products .archive-images .yith_magnifier_gallery li.first {
+    display: none; }
+.woocommerce-page.single-product .site-content {
+  background: #fff;
+  padding-top: 200px; }
+  .woocommerce-page.single-product .site-content .cdn-btn {
+    display: none; }
+  .woocommerce-page.single-product .site-content .main-woo-content {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin: 0 18.5%;
+    float: none;
+    margin-top: 80px; }
+    .woocommerce-page.single-product .site-content .main-woo-content:last-child {
+      margin-right: 0; }
+    .woocommerce-page.single-product .site-content .main-woo-content .images {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 74.41059%;
+      width: 74.41059% !important;
+      margin: 0 0 42px 0; }
+      .woocommerce-page.single-product .site-content .main-woo-content .images:last-child {
+        margin-right: 0; }
+      .woocommerce-page.single-product .site-content .main-woo-content .images .yith_magnifier_zoom_wrap {
+        border: 1px solid #d7d7d7;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 82.94039%;
+        float: right;
+        margin-right: 0; }
+        .woocommerce-page.single-product .site-content .main-woo-content .images .yith_magnifier_zoom_wrap:last-child {
+          margin-right: 0; }
+        .woocommerce-page.single-product .site-content .main-woo-content .images .yith_magnifier_zoom_wrap:last-child {
+          width: 100%; }
+      .woocommerce-page.single-product .site-content .main-woo-content .images .thumbnails {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 14.70196%;
+        padding-top: 0; }
+        .woocommerce-page.single-product .site-content .main-woo-content .images .thumbnails:last-child {
+          margin-right: 0; }
+        .woocommerce-page.single-product .site-content .main-woo-content .images .thumbnails ul li {
+          border: 1px solid #d7d7d7; }
+          .woocommerce-page.single-product .site-content .main-woo-content .images .thumbnails ul li a {
+            margin: 0 !important; }
+    .woocommerce-page.single-product .site-content .main-woo-content .summary {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%;
+      width: 23.23176% !important;
+      margin-right: 0;
+      margin-top: 0; }
+      .woocommerce-page.single-product .site-content .main-woo-content .summary:last-child {
+        margin-right: 0; }
+      .woocommerce-page.single-product .site-content .main-woo-content .summary h1 {
+        color: #faa634;
+        font: 44px "sunnregular"; }
+      .woocommerce-page.single-product .site-content .main-woo-content .summary .product_meta span {
+        font: 16px "Georgia";
+        color: #000;
+        text-transform: uppercase; }
+        .woocommerce-page.single-product .site-content .main-woo-content .summary .product_meta span span {
+          color: #898989; }
+      .woocommerce-page.single-product .site-content .main-woo-content .summary h4 {
+        font: 16px "Georgia";
+        color: #000;
+        text-transform: uppercase; }
+      .woocommerce-page.single-product .site-content .main-woo-content .summary p {
+        font: 16px "Georgia";
+        color: #898989;
+        text-transform: uppercase;
+        margin-top: 0; }
+    .woocommerce-page.single-product .site-content .main-woo-content .woocommerce-tabs {
+      width: 75%;
+      margin: 0 auto;
+      padding-right: 12%; }
+      .woocommerce-page.single-product .site-content .main-woo-content .woocommerce-tabs .tabs {
+        display: none; }
+      .woocommerce-page.single-product .site-content .main-woo-content .woocommerce-tabs h2 {
+        font: 44px "sunnregular";
+        text-transform: uppercase; }
+      .woocommerce-page.single-product .site-content .main-woo-content .woocommerce-tabs p, .woocommerce-page.single-product .site-content .main-woo-content .woocommerce-tabs li {
+        font: 16px "Georgia"; }
+        .woocommerce-page.single-product .site-content .main-woo-content .woocommerce-tabs p strong, .woocommerce-page.single-product .site-content .main-woo-content .woocommerce-tabs li strong {
+          display: none; }
+      .woocommerce-page.single-product .site-content .main-woo-content .woocommerce-tabs ul {
+        margin-left: 20px; }
+
+/**************
+*Footer*
+**************/
+footer {
+  text-align: center;
+  background: #000;
+  padding: 71px 0; }
+  footer .social {
+    margin: 25px auto 16px auto;
+    display: table; }
+    footer .social ul {
+      margin: 0;
+      list-style: none; }
+      footer .social ul li {
+        float: left;
+        padding: 0 12px 0 0; }
+        footer .social ul li:last-child {
+          padding: 0; }
+        footer .social ul li a {
+          display: block;
+          width: 34px;
+          height: 34px;
+          transition: background 500ms ease;
+          color: #000;
+          background: #fff;
+          border-radius: 18px;
+          font-size: 20px;
+          padding-top: 3px; }
+          footer .social ul li a:hover {
+            background: #ff; }
+  footer .menu-main-container {
+    margin: 16px auto 0 auto;
+    display: table; }
+    footer .menu-main-container ul {
+      margin: 0;
+      list-style: none; }
+      footer .menu-main-container ul li {
+        text-decoration: none;
+        float: left;
+        padding: 0 14px 0 0; }
+        footer .menu-main-container ul li:last-child {
+          padding: 0; }
+        footer .menu-main-container ul li a {
+          color: #fff;
+          text-decoration: none;
+          font: 14px/20px "Helvetica Neue", Helvetica;
+          text-transform: uppercase; }
+          footer .menu-main-container ul li a:hover {
+            color: #faa634; }
+  footer .site-info {
+    clear: both; }
+    footer .site-info span {
+      color: #c7c5c5;
+      font: 14px/20px "Helvetica Neue", Helvetica; }
+
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*::after, *::before {
+  content: ''; }
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+html, body {
+  height: 100%; }
+
+.cd-btn {
+  background: url("../../../images/slideout-open.png") no-repeat;
+  height: 30px;
+  width: 20px;
+  display: block;
+  margin: 25px 0 0 17px;
+  float: left; }
+  .no-touch .cd-btn:hover {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 20px rgba(0, 0, 0, 0.3); }
+
+@media only screen and (min-width: 1170px) {
+  .cd-main-content h1 {
+    font-size: 32px;
+    font-size: 2rem; } }
+
+/* -------------------------------- 
+
+Swatches
+
+-------------------------------- */
+.attribute_color_picker {
+  margin-left: -3px; }
+
+html div.swatch-wrapper {
+  border: none;
+  margin-right: 2px;
+  padding: 3px; }
+  html div.swatch-wrapper.selected {
+    border: 2px solid #faa634;
+    padding: 1px; }
+  html div.swatch-wrapper a {
+    outline: none; }
+
+table.variations {
+  display: none; }
+
+/*# sourceMappingURL=main.css.map */
